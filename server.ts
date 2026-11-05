@@ -176,6 +176,11 @@ app.get('/sitemap.xml', (_req, res) => {
   res.sendFile('sitemap.xml', { root: process.env.NODE_ENV === 'production' ? 'dist' : 'public' });
 });
 
+app.get('/BingSiteAuth.xml', (_req, res) => {
+  res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+  res.sendFile('BingSiteAuth.xml', { root: process.env.NODE_ENV === 'production' ? 'dist' : 'public' });
+});
+
 app.get('/robots.txt', (_req, res) => {
   res.setHeader('Content-Type', 'text/plain; charset=utf-8');
   res.sendFile('robots.txt', { root: process.env.NODE_ENV === 'production' ? 'dist' : 'public' });

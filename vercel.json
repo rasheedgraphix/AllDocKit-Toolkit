@@ -14,6 +14,19 @@
       ]
     },
     {
+      "source": "/BingSiteAuth.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
       "source": "/robots.txt",
       "headers": [
         {
@@ -33,6 +46,10 @@
       "destination": "/sitemap.xml"
     },
     {
+      "source": "/BingSiteAuth.xml",
+      "destination": "/BingSiteAuth.xml"
+    },
+    {
       "source": "/robots.txt",
       "destination": "/robots.txt"
     },
@@ -45,7 +62,7 @@
       "destination": "/manifest.json"
     },
     {
-      "source": "/((?!api/|assets/|sitemap\\.xml|robots\\.txt|privacy\\.html|manifest\\.json|sw\\.js|.*\\.(?:png|jpg|jpeg|gif|svg|ico|webp|xml|txt|html|js|css|json|woff2?)$).*)",
+      "source": "/((?!api/|assets/|sitemap\\.xml|BingSiteAuth\\.xml|robots\\.txt|privacy\\.html|manifest\\.json|sw\\.js|.*\\.(?:png|jpg|jpeg|gif|svg|ico|webp|xml|txt|html|js|css|json|woff2?)$).*)",
       "destination": "/index.html"
     }
   ]
