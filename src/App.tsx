@@ -150,13 +150,42 @@ const DEFAULT_SETTINGS: AppSettings = {
   historyLimit: 50,
 };
 
+const URL_SLUG_TO_TOOL: Record<string, ToolId> = {
+  'merge-pdf': 'pdf-merger',
+  'split-pdf': 'pdf-splitter',
+  'compress-pdf': 'pdf-compressor',
+  'organize-pdf': 'pdf-organizer',
+  'protect-pdf': 'pdf-protect',
+  'unlock-pdf': 'pdf-unlock',
+  'crop-pdf': 'pdf-crop',
+  'redact-pdf': 'pdf-redact',
+  'resize-pdf': 'pdf-resizer',
+  'flatten-pdf': 'pdf-flatten',
+  'repair-pdf': 'pdf-repair',
+  'compare-pdf': 'pdf-compare',
+};
+
+function resolveToolFromLocation(): ToolId {
+  if (typeof window === 'undefined') return 'pdf-merger';
+  const rawSlug = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+  if (!rawSlug) return 'pdf-merger';
+  if (URL_SLUG_TO_TOOL[rawSlug]) return URL_SLUG_TO_TOOL[rawSlug];
+  if (rawSlug in TOOL_NAMES) return rawSlug as ToolId;
+  return 'pdf-merger';
+}
+
 export default function App() {
-  const [activeTool, setActiveTool] = useState<ToolId>('pdf-merger');
+  const [activeTool, setActiveTool] = useState<ToolId>(() => resolveToolFromLocation());
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('app_theme');
     if (saved === 'dark' || saved === 'light') return saved;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   });
+
+  useEffect(() => {
+    const toolTitle = TOOL_NAMES[activeTool] || 'All-in-One PDF & Document Toolkit';
+    document.title = `${toolTitle} | AllDocKit Free Offline Studio`;
+  }, [activeTool]);
 
   const [settings, setSettings] = useState<AppSettings>(() => {
     try {

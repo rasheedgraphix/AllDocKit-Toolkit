@@ -171,6 +171,16 @@ Instructions:
   }
 });
 
+app.get('/sitemap.xml', (_req, res) => {
+  res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+  res.sendFile('sitemap.xml', { root: process.env.NODE_ENV === 'production' ? 'dist' : 'public' });
+});
+
+app.get('/robots.txt', (_req, res) => {
+  res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+  res.sendFile('robots.txt', { root: process.env.NODE_ENV === 'production' ? 'dist' : 'public' });
+});
+
 async function startServer() {
   const port = Number(process.env.PORT) || 3000;
 
@@ -182,6 +192,9 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     app.use(express.static('dist'));
+    app.get('*', (_req, res) => {
+      res.sendFile('index.html', { root: 'dist' });
+    });
   }
 
   app.listen(port, '0.0.0.0', () => {

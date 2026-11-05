@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://rasheedgraphix.github.io/AllDocKitToolkit/sitemap.xml
+Sitemap: https://alldockit-toolkit-web.vercel.app/sitemap.xml
