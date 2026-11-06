@@ -10,15 +10,31 @@
   "categories": ["productivity", "utilities", "business"],
   "icons": [
     {
-      "src": "./alldockit_logo.svg",
-      "sizes": "192x192 512x512",
-      "type": "image/svg+xml",
+      "src": "/logo_71x71.png",
+      "sizes": "71x71",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo_150x150.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo_300x300.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "./pixdoc_logo.svg",
+      "src": "/alldockit_logo.svg",
       "sizes": "192x192 512x512",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }

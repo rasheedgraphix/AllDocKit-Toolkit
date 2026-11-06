@@ -31,6 +31,9 @@
     <meta name="author" content="Rasheed Graphix (Hafiz Nouman Rasheed)" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#059669" />
+    <!-- Explicit Site Name for Google Search Engine (Changes "Vercel" to "AllDocKit") -->
+    <meta property="og:site_name" content="AllDocKit" />
+    <meta name="site_name" content="AllDocKit" />
     <meta name="application-name" content="AllDocKit" />
     <meta name="apple-mobile-web-app-title" content="AllDocKit" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -40,9 +43,16 @@
     <link rel="canonical" href="https://alldockit-toolkit-web.vercel.app/" />
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Favicon & Search Result Icons -->
+    <!-- Favicon & Google Search Result Icons (Multi-size PNGs so Google displays the logo instead of globe) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/alldockit_logo.svg" />
-    <link rel="apple-touch-icon" href="/alldockit_logo.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo_71x71.png" />
+    <link rel="icon" type="image/png" sizes="71x71" href="/logo_71x71.png" />
+    <link rel="icon" type="image/png" sizes="150x150" href="/logo_150x150.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/logo_300x300.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/logo_512x512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo_300x300.png" />
+    <link rel="apple-touch-icon" href="/logo_512x512.png" />
     <link rel="mask-icon" href="/alldockit_logo.svg" color="#059669" />
 
     <!-- PDF.js CDN Library for Client-side PDF Rendering -->
@@ -76,6 +86,15 @@
     {
       "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://alldockit-toolkit-web.vercel.app/#website",
+          "url": "https://alldockit-toolkit-web.vercel.app/",
+          "name": "AllDocKit",
+          "alternateName": ["AllDocKit Toolkit", "AllDocKit PDF Studio"],
+          "description": "100% Private Offline PDF, Image and Document Productivity Toolkit",
+          "inLanguage": "en"
+        },
         {
           "@type": "WebApplication",
           "@id": "https://alldockit-toolkit-web.vercel.app/#webapp",
